@@ -22,7 +22,7 @@ const theme = createTheme();
   const navigate = useNavigate()
 
   const handleSignup = (data) => {
-    axios.post('http://localhost:5000/api/users',data).then((response)=>{
+    axios.post('https://bloodbank-api-1ntl.onrender.com/api/users',data).then((response)=>{
       console.log(response)
       alert("sign up successfull")
       navigate("/Login");

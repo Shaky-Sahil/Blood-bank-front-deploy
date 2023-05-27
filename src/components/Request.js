@@ -17,7 +17,7 @@ const Request = () => {
   const {register,handleSubmit} = useForm();
   const navigate = useNavigate();
   const makeRequest = (data) =>{
-    axios.post('http://localhost:5000/request/new',data).then(()=>{
+    axios.post('https://bloodbank-api-1ntl.onrender.com/request/new',data).then(()=>{
       toast.success("request made")
       setTimeout(() => {
         navigate('/dashboard')

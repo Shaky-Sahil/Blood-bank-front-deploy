@@ -16,7 +16,7 @@ function Adddonor() {
   const {register, handleSubmit} = useForm()
   const navigate = useNavigate()
   const donorAdd = (data) => {
-    axios.post('http://localhost:5000/verified/request/new',data).then((res)=>{
+    axios.post('https://bloodbank-api-1ntl.onrender.com/verified/request/new',data).then((res)=>{
       console.log(res)
       toast.success("Donor Added")
       setTimeout(() => {

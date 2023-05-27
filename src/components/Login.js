@@ -37,7 +37,7 @@ export default function Login() {
 },[])
 
   const handleLogin = (data) => {
-    axios.post('http://localhost:5000/api/login',data).then((response)=>{
+    axios.post('https://bloodbank-api-1ntl.onrender.com/api/login',data).then((response)=>{
       console.log(response.data.user.isAdmin)
       localStorage.setItem("authenticated", true);
       localStorage.setItem("token",response.data.token)

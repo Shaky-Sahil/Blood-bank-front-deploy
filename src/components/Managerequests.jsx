@@ -22,7 +22,7 @@ const Managerequests = () => {
     useEffect(()=>{
       const loggedInUser = localStorage.getItem("authenticated");
       setauthenticated(loggedInUser)
-      axios.get('http://localhost:5000/requests/donors').then((response)=>{
+      axios.get('https://bloodbank-api-1ntl.onrender.com/requests/donors').then((response)=>{
           console.log(response.data)
           setRequests(response.data)
       })
@@ -30,7 +30,7 @@ const Managerequests = () => {
 
   const delReq = (req) =>{
     console.log(req)
-    axios.post("http://localhost:5000/request/delete",req).then((res)=>{
+    axios.post("https://bloodbank-api-1ntl.onrender.com/request/delete",req).then((res)=>{
         console.log(res)
         toast.success("deleted successfully")
         let value = requests.filter((u)=>(u._id!==req._id))
@@ -42,7 +42,7 @@ const Managerequests = () => {
 
   const approveReq = (req) => {
     console.log(req)
-    axios.post("http://localhost:5000/request/delete",req).then((res)=>{
+    axios.post("https://bloodbank-api-1ntl.onrender.com/request/delete",req).then((res)=>{
         console.log(res)
         let value = requests.filter((u)=>(u._id!==req._id))
         setRequests(value)
@@ -50,7 +50,7 @@ const Managerequests = () => {
         toast.error("something went wrong")
     })
     
-    axios.post("http://localhost:5000/verified/request/new",req).then((res)=>{
+    axios.post("https://bloodbank-api-1ntl.onrender.com/verified/request/new",req).then((res)=>{
         console.log(res)
         let value = requests.filter((u)=>(u._id!==req._id))
         toast.success("request verified")

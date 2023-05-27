@@ -16,7 +16,7 @@ const Manageuser = () => {
     const [users,setUsers] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
-        axios.get('http://localhost:5000/verified/requests').then((response)=>{
+        axios.get('https://bloodbank-api-1ntl.onrender.com/verified/requests').then((response)=>{
             console.log(response.data)
             setUsers(response.data)
         })
@@ -26,7 +26,7 @@ const Manageuser = () => {
 
     const deleteUser = (id) => {
         const data ={_id : id};
-        axios.post('http://localhost:5000/verified/request/delete',data).then(()=>{
+        axios.post('https://bloodbank-api-1ntl.onrender.com/verified/request/delete',data).then(()=>{
             toast.success("user deleted")
             let value = users.filter((u)=>(u._id!==id))
             setUsers(value)

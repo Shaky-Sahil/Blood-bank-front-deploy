@@ -20,7 +20,7 @@ const Requestlist = () => {
     useEffect(()=>{
       const loggedInUser = localStorage.getItem("authenticated");
       setauthenticated(loggedInUser)
-      axios.get('http://localhost:5000/requests').then((response)=>{
+      axios.get('https://bloodbank-api-1ntl.onrender.com/requests').then((response)=>{
           console.log(response.data)
           setRequests(response.data)
       })

@@ -17,7 +17,7 @@ const Donorlist = () => {
     useEffect(()=>{
         const loggedInUser = localStorage.getItem("authenticated");
         setauthenticated(loggedInUser)
-        axios.get('http://localhost:5000/verified/requests').then((response)=>{
+        axios.get('https://bloodbank-api-1ntl.onrender.com/verified/requests').then((response)=>{
             console.log(response.data)
             setUsers(response.data)
         })

@@ -17,7 +17,7 @@ const Updateuser = () => {
   const handleUpdate = (data) => {
     data = {...data,_id:user._id}
     console.log(`request data is: ${data._id}`)
-    axios.post('http://localhost:5000/verified/request/update',data).then((res)=>{
+    axios.post('https://bloodbank-api-1ntl.onrender.com/verified/request/update',data).then((res)=>{
         console.log(res)
         toast.success("Updated user")
         navigate('/manage/user')
