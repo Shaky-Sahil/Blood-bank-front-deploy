@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Adddonor.css";
-import { Button, Container, TextField, Typography } from '@mui/material';
+import { Button, Container, MenuItem, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -15,8 +15,9 @@ function Adddonor() {
   const [bloodType, setBloodType] = useState('');
   const {register, handleSubmit} = useForm()
   const navigate = useNavigate()
+  const bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
   const donorAdd = (data) => {
-    axios.post('https://bloodbank-api-1ntl.onrender.com/verified/request/new',data).then((res)=>{
+    axios.post('http://localhost:5000/verified/request/new',data).then((res)=>{
       console.log(res)
       toast.success("Donor Added")
       setTimeout(() => {
@@ -49,8 +50,19 @@ function Adddonor() {
       {...register('requestEmail')}/>
       <TextField className='cls2' label="Phone Number" name='requestPhone'
       {...register('requestPhone')}/>
-      <TextField className='cls2' label="Blood" name='requestBlood'
-      {...register('requestBlood')}/>
+       <TextField
+          select
+          className='cls2'
+          label='Blood'
+          name='requestBlood'
+          {...register('requestBlood')}
+        >
+          {bloodTypes.map((type) => (
+            <MenuItem key={type} value={type}>
+              {type}
+            </MenuItem>
+          ))}
+        </TextField>
        <TextField className='cls2' label="Ailment" name='requestAilment'
       {...register('requestAilment')} defaultValue={'None'}/>
       <br/>
